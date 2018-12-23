@@ -1,0 +1,83 @@
+@mixin outline {
+  outline: 1px solid red;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+@mixin background($imgpath, $position: center, $repeat: no-repeat, $size: contain) {
+  background: {
+    image: url($imgpath);
+    position: $position;
+    repeat: $repeat;
+    size: $size;
+  }
+}
+
+@mixin smallerThan1440 {
+  @media screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+@mixin smallerThan1280 {
+  @media screen and (max-width: 1280px) {
+    @content;
+  }
+}
+
+@mixin smallerThan1024 {
+  @media screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin smallerThan850 {
+  @media screen and (max-width: 850px) {
+    @content;
+  }
+}
+
+@mixin smallerThan768 {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin smallerThan630 {
+  @media screen and (max-width: 630px) {
+    @content;
+  }
+}
+
+@mixin smallerThan550 {
+  @media screen and (max-width: 550px) {
+    @content;
+  }
+}
+
+@mixin smallerThan480 {
+  @media screen and (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin smallerThan360 {
+  @media screen and (max-width: 360px) {
+    @content;
+  }
+}
+
+@mixin smallerThan330 {
+  @media screen and (max-width: 330px) {
+    @content;
+  }
+}
