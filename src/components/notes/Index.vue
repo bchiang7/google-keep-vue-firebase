@@ -29,13 +29,13 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .notes {
-  max-width: 1000px;
-  margin: 100px auto;
-  position: relative;
   display: grid;
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  position: relative;
+  max-width: 1000px;
+  margin: 100px auto;
 }
 </style>

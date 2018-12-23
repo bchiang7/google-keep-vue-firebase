@@ -18,7 +18,7 @@ export default {
 
 <style lang="scss">
 .note {
-  border: 1px solid $lightGrey;
+  border: 1px solid $light-grey;
   border-radius: 8px;
   padding: 20px;
 
