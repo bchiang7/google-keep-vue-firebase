@@ -15,14 +15,20 @@ export const getNotes = cb => db.ref('notes').on('value', cb);
 
 // Update
 export const updateNote = (id, title = '', content = '', cb) => {
-  const newData = {
-    title,
-    content,
-  };
+  return db
+    .ref('notes')
+    .orderByChild('id')
+    .equalTo(id)
+    .once('value')
+    .then(function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+        db.ref('notes')
+          .child(childSnapshot.key)
+          .update({ title, content });
+      });
 
-  console.log(id);
-
-  return db.ref(`notes/${id}`).update(newData, cb);
+      cb();
+    });
 };
 
 // Delete
