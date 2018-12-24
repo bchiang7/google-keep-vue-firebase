@@ -1,3 +1,10 @@
+$white: #ffffff;
+$black: #202124;
+$grey: rgba(0, 0, 0, 0.54);
+$light-grey: #dadce0;
+$vue-green: #42b883;
+$vue-navy: #35495e;
+
 $fz-base: 16px;
 $fz-xs: 12px;
 $fz-sm: 14px;
@@ -10,13 +17,8 @@ $ff-roboto: 'Roboto', system, -apple-system, BlinkMacSystemFont, Roboto, 'Helvet
 $ff-product: 'Product Sans', system, -apple-system, BlinkMacSystemFont, Roboto, 'Helvetica Neue',
   'Segoe UI', Arial, sans-serif;
 
-$white: #ffffff;
-$black: #202124;
-$grey: rgba(0, 0, 0, 0.54);
-$light-grey: #dadce0;
-$vue-green: #42b883;
-$vue-navy: #35495e;
-
 $transition: all 0.2s ease-in-out;
+
+$radius: 8px;
 
 $shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);

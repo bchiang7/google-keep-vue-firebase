@@ -16,7 +16,7 @@
     />
 
     <button type="submit">
-      <span>+</span>
+      <span>&#43;</span>
     </button>
   </form>
 </template>
@@ -53,11 +53,13 @@ export default {
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
-  padding: 15px;
-  border-radius: 8px;
+  padding: 20px;
+  background-color: $white;
+  border-radius: $radius;
   box-shadow: $shadow;
   input,
   textarea {
+    width: 100%;
     display: block;
   }
   input {
@@ -67,7 +69,6 @@ export default {
     margin-bottom: 10px;
   }
   textarea {
-    width: 100%;
     resize: none;
   }
   button {
@@ -81,7 +82,7 @@ export default {
     border-radius: 50%;
     width: 36px;
     height: 36px;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-shadow: $shadow;
     font-size: $fz-lg;
     line-height: 1;
     text-align: center;
