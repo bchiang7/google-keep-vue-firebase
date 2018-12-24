@@ -4,7 +4,9 @@
     @click="selectNote(note)"
   >
     <h1>{{ note.title }}</h1>
-    <p>{{ note.content }}</p>
+    <p>
+      <pre>{{ note.content }}</pre>
+    </p>
   </div>
 </template>
 
@@ -42,6 +44,13 @@ export default {
 
   h1 {
     font-size: 18px;
+  }
+
+  p {
+    pre {
+      font-family: $ff-roboto;
+      white-space: pre-wrap;
+    }
   }
 }
 </style>
