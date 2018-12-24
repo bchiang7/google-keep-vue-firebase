@@ -40,12 +40,14 @@ a {
   color: inherit;
   text-decoration: none;
   text-decoration-skip-ink: auto;
+  transition: $transition;
 }
 
 button {
   border: 0;
   outline: 0;
   cursor: pointer;
+  transition: $transition;
 }
 
 input,
@@ -75,5 +77,5 @@ img {
 }
 
 #app {
-  padding: 50px;
+  padding: 50px 100px;
 }

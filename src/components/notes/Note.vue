@@ -1,5 +1,8 @@
 <template>
-  <div class="note">
+  <div
+    class="note"
+    @click="selectNote(note)"
+  >
     <h1>{{ note.title }}</h1>
     <p>{{ note.content }}</p>
   </div>
@@ -13,6 +16,13 @@ export default {
       required: true,
     },
   },
+  methods: {
+    selectNote(note) {
+      console.log(note);
+      // console.log(key, title, content);
+
+    },
+  },
 };
 </script>
 
@@ -21,6 +31,13 @@ export default {
   border: 1px solid $light-grey;
   border-radius: 8px;
   padding: 20px;
+  cursor: default;
+  transition: $transition;
+
+  &:hover,
+  &:focus {
+    box-shadow: $shadow;
+  }
 
   h1 {
     font-size: 18px;

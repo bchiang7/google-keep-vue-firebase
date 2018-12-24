@@ -1,6 +1,10 @@
 <template>
   <div class="notes">
-    <Note v-for="(note, index) in notes" :key="index" :note="note" />
+    <Note
+      v-for="(note, index) in notes"
+      :key="index"
+      :note="note"
+    />
   </div>
 </template>
 
@@ -17,10 +21,10 @@ export default {
       notes: [],
     };
   },
-  created() {},
   mounted() {
     db.getNotes(snapshot => {
       const notes = snapshot.val();
+      // TODO: need note ID!
       this.notes = Object.keys(notes)
         .map(i => notes[i])
         .reverse();
@@ -35,7 +39,6 @@ export default {
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   position: relative;
-  max-width: 1000px;
   margin: 100px auto;
 }
 </style>
