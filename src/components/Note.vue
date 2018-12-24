@@ -9,6 +9,8 @@
 </template>
 
 <script>
+import { EventBus } from '@/EventBus.js';
+
 export default {
   props: {
     note: {
@@ -18,9 +20,7 @@ export default {
   },
   methods: {
     selectNote(note) {
-      console.log(note);
-      // console.log(key, title, content);
-
+      EventBus.$emit('note-selected', note);
     },
   },
 };
@@ -28,6 +28,7 @@ export default {
 
 <style lang="scss">
 .note {
+  background-color: $white;
   border: 1px solid $light-grey;
   border-radius: 8px;
   padding: 20px;

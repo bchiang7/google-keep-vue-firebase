@@ -98,11 +98,12 @@ export default {
   margin: 25vh auto 0;
   background: #fff;
   padding: 20px;
-  border-radius: 8px;
+  border-radius: $radius;
   box-shadow: $shadow;
 
   input,
   textarea {
+    width: 100%;
     display: block;
   }
   input {
@@ -112,7 +113,6 @@ export default {
     margin-bottom: 10px;
   }
   textarea {
-    width: 100%;
     resize: none;
   }
   .button-controls {

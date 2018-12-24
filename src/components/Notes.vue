@@ -10,7 +10,7 @@
 
 <script>
 import { db } from '@/firebase';
-import Note from './Note';
+import Note from '@/components/Note';
 
 export default {
   components: {
@@ -24,11 +24,12 @@ export default {
   mounted() {
     db.getNotes(snapshot => {
       const notes = snapshot.val();
-      // TODO: need note ID!
+      // Make sure the notes show up in reverse chronological order
       this.notes = Object.keys(notes)
         .map(i => notes[i])
         .reverse();
     });
+
   },
 };
 </script>
