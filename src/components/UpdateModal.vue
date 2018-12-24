@@ -76,8 +76,8 @@ export default {
     },
     update() {
       const id = this.note.id;
-      const title = '';
-      const content = '';
+      const title = this.note.title;
+      const content = this.note.content;
 
       db.updateNote(id, title, content, () => {
         this.dismissModal();
