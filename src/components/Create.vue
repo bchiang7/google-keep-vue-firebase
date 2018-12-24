@@ -83,9 +83,12 @@ export default {
     width: 36px;
     height: 36px;
     box-shadow: $shadow;
-    font-size: $fz-lg;
+    font-size: $fz-xl;
     line-height: 1;
     text-align: center;
+    span {
+      margin-top: -3px;
+    }
   }
 }
 </style>

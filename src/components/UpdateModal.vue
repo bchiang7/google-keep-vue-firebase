@@ -9,12 +9,12 @@
         class="modal"
         role="dialog"
         aria-labelledby="modalTitle"
-        aria-describedby="modalDescription"
+        aria-describedby="modalContent"
       >
         <form
           class="edit-form"
-          @submit.prevent="update"
           @click.stop
+          @submit.prevent="update"
         >
           <input
             id="modalTitle"
@@ -23,10 +23,10 @@
             placeholder="Title"
           >
           <textarea
-            id="modalDescription"
+            id="modalContent"
             v-model="note.content"
             name="content"
-            placeholder="Text goes here..."
+            placeholder="Take a note..."
             rows="8"
           />
 
@@ -46,7 +46,7 @@
               type="submit"
               class="submit-button"
             >
-              <span>Close</span>
+              <span>Done</span>
             </button>
           </footer>
         </form>
@@ -65,27 +65,35 @@ export default {
       default: () => {},
     },
   },
+  data() {
+    return {
+      editableNote: { ...this.note },
+    };
+  },
   methods: {
     dismissModal() {
       this.note = null;
     },
     update() {
-      db.updateNote(this.note, err => {
-        if (err) {
-          throw err;
-        }
+      const id = this.note.id;
+      const title = '';
+      const content = '';
 
+      db.updateNote(id, title, content, () => {
         this.dismissModal();
+      }, err => {
+        console.error(err);
       });
     },
     remove() {
-      db.deleteNote(this.note, err => {
-        if (err) {
-          throw err;
-        }
-
-        this.dismissModal();
-      });
+      const id = this.note.id;
+      if (window.confirm('Do you really want to delete this note?')) {
+        db.deleteNote(id).then(() => {
+          this.dismissModal();
+        }, err => {
+          console.error(err);
+        });
+      }
     },
   },
 };
@@ -107,7 +115,7 @@ export default {
   max-width: 600px;
   margin: 25vh auto 0;
   background: $white;
-  padding: 20px;
+  padding: 20px 20px 8px;
   border-radius: $radius;
   box-shadow: $shadow;
   transition: $transition;
@@ -121,10 +129,11 @@ export default {
     font-family: $ff-product;
     font-weight: 700;
     font-size: $fz-lg;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
   }
   textarea {
     resize: none;
+    line-height: 1.5;
   }
   .modal-footer {
     @include flex-between;
@@ -136,17 +145,16 @@ export default {
       font-family: $ff-product;
       font-weight: 700;
       font-size: $fz-sm;
-      opacity: 0.5;
 
       &:hover,
       &:focus {
         background-color: rgba(0,0,0,0.08);
-        opacity: 1;
       }
     }
     .delete-button {
       width: 35px;
       padding: 8px;
+      margin-left: -8px;
       opacity: 0.5;
 
       &:hover,
