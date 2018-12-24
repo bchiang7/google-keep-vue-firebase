@@ -11,6 +11,7 @@
 @mixin flex-between {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 @mixin background($imgpath, $position: center, $repeat: no-repeat, $size: contain) {
