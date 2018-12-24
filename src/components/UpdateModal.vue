@@ -1,48 +1,58 @@
 <template>
-  <div
-    v-if="note"
-    transition="modal"
-    class="backdrop"
-    @click="dismissModal"
-  >
-    <form
-      class="edit-note"
-      @submit.prevent="update"
-      @click.stop
+  <Transition name="modal">
+    <div
+      v-if="note"
+      class="modal-backdrop"
+      @click="dismissModal"
     >
-      <input
-        v-model="note.title"
-        name="title"
-        placeholder="Title"
+      <div
+        class="modal"
+        role="dialog"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalDescription"
       >
-      <textarea
-        v-model="note.content"
-        name="content"
-        placeholder="Text goes here..."
-        rows="8"
-      />
-
-      <div class="button-controls">
-        <button
-          type="button"
-          class="delete-button"
-          @click="remove"
+        <form
+          class="edit-form"
+          @submit.prevent="update"
+          @click.stop
         >
-          <img
-            src="https://img.icons8.com/metro/1600/delete.png"
-            alt="Trash Icon"
+          <input
+            id="modalTitle"
+            v-model="note.title"
+            name="title"
+            placeholder="Title"
           >
-        </button>
+          <textarea
+            id="modalDescription"
+            v-model="note.content"
+            name="content"
+            placeholder="Text goes here..."
+            rows="8"
+          />
 
-        <button
-          type="submit"
-          class="submit-button"
-        >
-          <span>Close</span>
-        </button>
+          <footer class="modal-footer">
+            <button
+              type="button"
+              class="delete-button"
+              @click="remove"
+            >
+              <img
+                src="https://img.icons8.com/metro/1600/delete.png"
+                alt="Trash Icon"
+              >
+            </button>
+
+            <button
+              type="submit"
+              class="submit-button"
+            >
+              <span>Close</span>
+            </button>
+          </footer>
+        </form>
       </div>
-    </form>
-  </div>
+    </div>
+  </Transition>
 </template>
 
 <script>
@@ -82,7 +92,7 @@ export default {
 </script>
 
 <style lang="scss">
-.backdrop {
+.modal-backdrop {
   position: fixed;
   left: 0;
   top: 0;
@@ -91,15 +101,16 @@ export default {
   background-color: rgba(229, 229, 229, 0.75);
   z-index: 100;
 }
-.edit-note {
+.edit-form {
   position: relative;
   width: 100%;
   max-width: 600px;
   margin: 25vh auto 0;
-  background: #fff;
+  background: $white;
   padding: 20px;
   border-radius: $radius;
   box-shadow: $shadow;
+  transition: $transition;
 
   input,
   textarea {
@@ -115,52 +126,49 @@ export default {
   textarea {
     resize: none;
   }
-  .button-controls {
+  .modal-footer {
     @include flex-between;
-  }
-  .submit-button {
-    height: 36px;
-    padding: 8px 24px;
-    border-radius: 4px;
-    font-family: $ff-product;
-    font-weight: 700;
-    font-size: $fz-sm;
-    opacity: 0.5;
 
-    &:hover,
-    &:focus {
-      background-color: rgba(0,0,0,0.08);
-      opacity: 1;
+    .submit-button {
+      height: 36px;
+      padding: 8px 24px;
+      border-radius: 4px;
+      font-family: $ff-product;
+      font-weight: 700;
+      font-size: $fz-sm;
+      opacity: 0.5;
+
+      &:hover,
+      &:focus {
+        background-color: rgba(0,0,0,0.08);
+        opacity: 1;
+      }
+    }
+    .delete-button {
+      width: 35px;
+      padding: 8px;
+      opacity: 0.5;
+
+      &:hover,
+      &:focus {
+        opacity: 1;
+      }
     }
   }
-  .delete-button {
-    width: 35px;
-    padding: 8px;
-    opacity: 0.5;
-
-    &:hover,
-    &:focus {
-      opacity: 1;
-    }
-  }
 }
 
-/* modal transition */
-.modal-transition {
-  transition: opacity 0.3s ease;
-  opacity: 1;
-}
-.modal-transition form {
-  transition: transform 0.3s ease;
-}
 .modal-enter,
-.modal-leave {
+.modal-leave-active {
   opacity: 0;
 }
-
-.modal-enter form,
-.modal-leave form {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+.modal-enter,
+.modal-leave-to {
+  form {
+    transform: scale(0.75);
+  }
+}
+.modal-enter-active,
+.modal-leave-active {
+  transition: $transition;
 }
 </style>
