@@ -49,6 +49,7 @@ export default {
   created() {
     EventBus.$on('note-selected', note => {
       this.selectedNote = note;
+      console.log(note);
     });
   },
 };
