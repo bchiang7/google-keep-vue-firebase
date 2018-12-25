@@ -1,5 +1,7 @@
 # google-keep-vue-firebase
 
+Simple Google Keep clone with Vue.js and Firebase
+
 ## Project setup
 
 ```bash
