@@ -1,11 +1,5 @@
 <template>
-  <div class="notes">
-    <Note
-      v-for="(note, index) in notes"
-      :key="index"
-      :note="note"
-    />
-  </div>
+  <div class="notes"><Note v-for="(note, index) in notes" :key="index" :note="note" /></div>
 </template>
 
 <script>
@@ -29,7 +23,6 @@ export default {
         .map(i => notes[i])
         .reverse();
     });
-
   },
 };
 </script>
@@ -40,6 +33,6 @@ export default {
   grid-gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   position: relative;
-  margin: 100px auto;
+  margin: 50px auto;
 }
 </style>

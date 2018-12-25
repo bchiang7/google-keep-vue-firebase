@@ -1,19 +1,21 @@
 <template>
-  <div
-    class="note"
-    @click="selectNote(note)"
-  >
-    <h1>{{ note.title }}</h1>
-    <p>
-      <pre>{{ note.content }}</pre>
-    </p>
+  <div class="note" @click="selectNote(note)">
+    <EditIcon />
+    <h1 v-if="note.title">{{ note.title }}</h1>
+    <pre v-if="note.content">
+      {{ note.content }}
+    </pre>
   </div>
 </template>
 
 <script>
 import { EventBus } from '@/EventBus.js';
+import EditIcon from '@/components/icons/EditIcon';
 
 export default {
+  components: {
+    EditIcon,
+  },
   props: {
     note: {
       type: Object,
@@ -36,21 +38,33 @@ export default {
   padding: 20px;
   cursor: default;
   transition: $transition;
+  position: relative;
 
   &:hover,
   &:focus {
     box-shadow: $shadow;
+    svg {
+      opacity: 0.75;
+    }
   }
 
   h1 {
     font-size: 18px;
   }
 
-  p {
-    pre {
-      font-family: $ff-roboto;
-      white-space: pre-wrap;
-    }
+  pre {
+    font-family: $ff-roboto;
+    white-space: pre-wrap;
+  }
+
+  svg {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 25px;
+    height: 25px;
+    opacity: 0;
+    transition: $transition;
   }
 }
 </style>
