@@ -50,6 +50,10 @@ export default {
     EventBus.$on('note-selected', note => {
       this.selectedNote = note;
     });
+
+    EventBus.$on('modal-dismissed', () => {
+      this.selectedNote = null;
+    });
   },
 };
 </script>

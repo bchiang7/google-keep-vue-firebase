@@ -54,6 +54,7 @@
 
 <script>
 import { db } from '@/firebase';
+import { EventBus } from '@/EventBus.js';
 import DeleteIcon from '@/components/icons/DeleteIcon';
 
 export default {
@@ -74,6 +75,7 @@ export default {
   methods: {
     dismissModal() {
       this.note = null;
+      EventBus.$emit('modal-dismissed');
     },
     update() {
       const id = this.note.id;
@@ -94,6 +96,7 @@ export default {
     },
     remove() {
       const id = this.note.id;
+
       if (window.confirm('Do you really want to delete this note?')) {
         db.deleteNote(id).then(
           () => {
