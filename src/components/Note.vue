@@ -1,7 +1,12 @@
 <template>
-  <div class="note" @click="selectNote(note)">
+  <div
+    class="note"
+    @click="selectNote(note)"
+  >
     <EditIcon />
-    <h1 v-if="note.title">{{ note.title }}</h1>
+    <h1 v-if="note.title">
+      {{ note.title }}
+    </h1>
     <pre v-if="note.content">
       {{ note.content }}
     </pre>

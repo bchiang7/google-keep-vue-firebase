@@ -2,6 +2,8 @@
 
 Simple Google Keep clone with Vue.js and Firebase
 
+Based on this [tutorial](https://scotch.io/tutorials/building-a-google-keep-clone-with-vue-and-firebase-pt-1)
+
 ## Project setup
 
 ```bash

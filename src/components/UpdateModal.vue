@@ -1,9 +1,27 @@
 <template>
   <Transition name="modal">
-    <div v-if="note" class="modal-backdrop" @click="dismissModal">
-      <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalContent">
-        <form class="edit-form" @click.stop @submit.prevent="update">
-          <input id="modalTitle" v-model="note.title" name="title" placeholder="Title" />
+    <div
+      v-if="note"
+      class="modal-backdrop"
+      @click="dismissModal"
+    >
+      <div
+        class="modal"
+        role="dialog"
+        aria-labelledby="modalTitle"
+        aria-describedby="modalContent"
+      >
+        <form
+          class="edit-form"
+          @click.stop
+          @submit.prevent="update"
+        >
+          <input
+            id="modalTitle"
+            v-model="note.title"
+            name="title"
+            placeholder="Title"
+          >
           <textarea
             id="modalContent"
             v-model="note.content"
@@ -13,9 +31,20 @@
           />
 
           <footer class="modal-footer">
-            <button type="button" class="delete-button" @click="remove"><DeleteIcon /></button>
+            <button
+              type="button"
+              class="delete-button"
+              @click="remove"
+            >
+              <DeleteIcon />
+            </button>
 
-            <button type="submit" class="submit-button"><span>Done</span></button>
+            <button
+              type="submit"
+              class="submit-button"
+            >
+              <span>Done</span>
+            </button>
           </footer>
         </form>
       </div>
