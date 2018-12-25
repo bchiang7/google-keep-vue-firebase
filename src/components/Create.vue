@@ -1,17 +1,25 @@
 <template>
-  <form class="create-note" @submit.prevent="createNote()">
-    <input v-model="title" name="title" placeholder="Title">
-    <textarea
-      v-model="content"
-      name="content"
-      placeholder="Take a note..."
-      rows="3"
-    />
-
-    <button type="submit">
-      <span>&#43;</span>
-    </button>
-  </form>
+  <div class="create-form">
+    <div v-if="titleFieldVisible" class="backdrop" @click="hideTitleField" />
+    <form class="create-note" @submit.prevent="createNote()">
+      <input
+        v-if="titleFieldVisible"
+        v-model="title"
+        name="title"
+        placeholder="Title"
+        @focus="showTitleField"
+      >
+      <textarea
+        v-model="content"
+        name="content"
+        placeholder="Take a note..."
+        @focus="showTitleField"
+      />
+      <button type="submit">
+        <span>&#43;</span>
+      </button>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -22,6 +30,7 @@ export default {
     return {
       title: '',
       content: '',
+      titleFieldVisible: false,
     };
   },
   methods: {
@@ -31,16 +40,31 @@ export default {
           () => {
             this.title = '';
             this.content = '';
+            this.titleFieldVisible = false;
           },
           e => console.error(e),
         );
       }
+    },
+    showTitleField() {
+      this.titleFieldVisible = true;
+    },
+    hideTitleField() {
+      this.titleFieldVisible = false;
     },
   },
 };
 </script>
 
 <style lang="scss">
+.backdrop {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 9;
+}
 .create-note {
   position: relative;
   width: 100%;
@@ -50,6 +74,8 @@ export default {
   background-color: $white;
   border-radius: $radius;
   box-shadow: $shadow;
+  z-index: 10;
+
   input,
   textarea {
     width: 100%;
