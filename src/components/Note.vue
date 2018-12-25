@@ -7,9 +7,9 @@
     <h1 v-if="note.title">
       {{ note.title }}
     </h1>
-    <pre v-if="note.content">
-      {{ note.content }}
-    </pre>
+    <p v-if="note.content">
+      <pre>{{ note.content }}</pre>
+    </p>
   </div>
 </template>
 
