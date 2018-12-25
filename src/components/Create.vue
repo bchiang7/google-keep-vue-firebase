@@ -1,13 +1,6 @@
 <template>
-  <form
-    class="create-note"
-    @submit.prevent="createNote()"
-  >
-    <input
-      v-model="title"
-      name="title"
-      placeholder="Title"
-    >
+  <form class="create-note" @submit.prevent="createNote()">
+    <input v-model="title" name="title" placeholder="Title">
     <textarea
       v-model="content"
       name="content"

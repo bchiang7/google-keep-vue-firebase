@@ -12,16 +12,16 @@
     "es6": true
   },
   "rules": {
-    // "vue/max-attributes-per-line": [
-    //   "error",
-    //   {
-    //     "singleline": 20,
-    //     "multiline": {
-    //       "max": 1,
-    //       "allowFirstLine": false
-    //     }
-    //   }
-    // ],
+    "vue/max-attributes-per-line": [
+      "error",
+      {
+        "singleline": 3,
+        "multiline": {
+          "max": 1,
+          "allowFirstLine": false
+        }
+      }
+    ],
     "vue/html-closing-bracket-spacing": [
       "error",
       {

@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="note"
-    @click="selectNote(note)"
-  >
+  <div class="note" @click="selectNote(note)">
     <EditIcon />
     <h1 v-if="note.title">
       {{ note.title }}
