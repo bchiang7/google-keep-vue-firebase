@@ -1,27 +1,9 @@
 <template>
   <Transition name="modal">
-    <div
-      v-if="note"
-      class="modal-backdrop"
-      @click="dismissModal"
-    >
-      <div
-        class="modal"
-        role="dialog"
-        aria-labelledby="modalTitle"
-        aria-describedby="modalContent"
-      >
-        <form
-          class="edit-form"
-          @click.stop
-          @submit.prevent="update"
-        >
-          <input
-            id="modalTitle"
-            v-model="note.title"
-            name="title"
-            placeholder="Title"
-          >
+    <div v-if="note" class="modal-backdrop" @click="dismissModal">
+      <div class="modal" role="dialog" aria-labelledby="modalTitle" aria-describedby="modalContent">
+        <form class="edit-form" @click.stop @submit.prevent="update">
+          <input id="modalTitle" v-model="note.title" name="title" placeholder="Title" />
           <textarea
             id="modalContent"
             v-model="note.content"
@@ -31,23 +13,9 @@
           />
 
           <footer class="modal-footer">
-            <button
-              type="button"
-              class="delete-button"
-              @click="remove"
-            >
-              <img
-                src="https://img.icons8.com/metro/1600/delete.png"
-                alt="Trash Icon"
-              >
-            </button>
+            <button type="button" class="delete-button" @click="remove"><DeleteIcon /></button>
 
-            <button
-              type="submit"
-              class="submit-button"
-            >
-              <span>Done</span>
-            </button>
+            <button type="submit" class="submit-button"><span>Done</span></button>
           </footer>
         </form>
       </div>
@@ -57,8 +25,12 @@
 
 <script>
 import { db } from '@/firebase';
+import DeleteIcon from '@/components/icons/DeleteIcon';
 
 export default {
+  components: {
+    DeleteIcon,
+  },
   props: {
     note: {
       type: Object,
@@ -79,20 +51,29 @@ export default {
       const title = this.note.title;
       const content = this.note.content;
 
-      db.updateNote(id, title, content, () => {
-        this.dismissModal();
-      }, err => {
-        console.error(err);
-      });
+      db.updateNote(
+        id,
+        title,
+        content,
+        () => {
+          this.dismissModal();
+        },
+        err => {
+          console.error(err);
+        },
+      );
     },
     remove() {
       const id = this.note.id;
       if (window.confirm('Do you really want to delete this note?')) {
-        db.deleteNote(id).then(() => {
-          this.dismissModal();
-        }, err => {
-          console.error(err);
-        });
+        db.deleteNote(id).then(
+          () => {
+            this.dismissModal();
+          },
+          err => {
+            console.error(err);
+          },
+        );
       }
     },
   },
@@ -148,7 +129,7 @@ export default {
 
       &:hover,
       &:focus {
-        background-color: rgba(0,0,0,0.08);
+        background-color: rgba(0, 0, 0, 0.08);
       }
     }
     .delete-button {

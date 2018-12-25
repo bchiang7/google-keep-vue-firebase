@@ -4,12 +4,12 @@ import 'firebase/database';
 if (!firebase.apps.length) {
   // Initialize Firebase
   const config = {
-    apiKey: 'AIzaSyCshskVQq-6CbJ3DKZL0DE_bkRXysRypxg',
-    authDomain: 'keep-vue-clone.firebaseapp.com',
-    databaseURL: 'https://keep-vue-clone.firebaseio.com',
-    projectId: 'keep-vue-clone',
-    storageBucket: 'keep-vue-clone.appspot.com',
-    messagingSenderId: '691249532009',
+    apiKey: process.env.VUE_APP_FB_API_KEY,
+    authDomain: process.env.VUE_APP_FB_AUTH_DOMAIN,
+    databaseURL: process.env.VUE_APP_FB_DATABASE_URL,
+    projectId: process.env.VUE_APP_FB_PROJECT_ID,
+    storageBucket: process.env.VUE_APP_FB_STORAGE_BUCKET,
+    messagingSenderId: process.env.VUE_APP_FB_MESSAGING_SENDER_ID,
   };
 
   firebase.initializeApp(config);
