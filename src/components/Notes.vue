@@ -1,10 +1,6 @@
 <template>
   <div class="notes">
-    <Note
-      v-for="(note, index) in notes"
-      :key="index"
-      :note="note"
-    />
+    <Note v-for="(note, index) in notes" :key="index" :note="note" />
   </div>
 </template>
 
