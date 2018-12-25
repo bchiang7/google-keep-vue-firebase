@@ -10,14 +10,14 @@
         <form class="edit-form" @submit.prevent="update" @click.stop>
           <input
             id="modalTitle"
-            v-model="note.title"
+            v-model="mutableNote.title"
             name="title"
             placeholder="Title"
           >
 
           <textarea
             id="modalContent"
-            v-model="note.content"
+            v-model="mutableNote.content"
             name="content"
             placeholder="Take a note..."
             rows="8"
@@ -54,18 +54,17 @@ export default {
   },
   data() {
     return {
-      editableNote: { ...this.note },
+      mutableNote: this.note,
     };
   },
   methods: {
     dismissModal() {
-      this.note = null;
       EventBus.$emit('modal-dismissed');
     },
     update() {
-      const id = this.note.id;
-      const title = this.note.title;
-      const content = this.note.content;
+      const id = this.mutableNote.id;
+      const title = this.mutableNote.title;
+      const content = this.mutableNote.content;
 
       db.updateNote(
         id,
@@ -80,7 +79,7 @@ export default {
       );
     },
     remove() {
-      const id = this.note.id;
+      const id = this.mutableNote.id;
 
       if (window.confirm('Do you really want to delete this note?')) {
         db.deleteNote(id).then(

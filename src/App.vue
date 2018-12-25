@@ -2,13 +2,13 @@
   <div id="app">
     <div class="logos">
       <span class="logo keep">
-        <img src="./assets/images/keep-logo.png" alt="Google Keep" >
+        <img src="./assets/images/keep-logo.png" alt="Google Keep">
       </span>
       <span class="plus">
         &#43;
       </span>
       <span class="logo vue">
-        <img src="./assets/images/vue-logo.png" alt="Vue" >
+        <img src="./assets/images/vue-logo.png" alt="Vue">
       </span>
     </div>
 
@@ -16,7 +16,7 @@
 
     <Notes />
 
-    <UpdateModal :note.sync="selectedNote" />
+    <UpdateModal v-if="showModal" :note="selectedNote" />
   </div>
 </template>
 
@@ -36,15 +36,18 @@ export default {
   data() {
     return {
       selectedNote: null,
+      showModal: false,
     };
   },
   created() {
     EventBus.$on('note-selected', note => {
       this.selectedNote = note;
+      this.showModal = true;
     });
 
     EventBus.$on('modal-dismissed', () => {
       this.selectedNote = null;
+      this.showModal = false;
     });
   },
 };
@@ -55,8 +58,8 @@ export default {
 
 .logos {
   @include flex-between;
-  max-width: 200px;
-  margin: 0 auto 50px;
+  max-width: 150px;
+  margin: 0 auto 30px;
 
   span {
     color: $vue-navy;
