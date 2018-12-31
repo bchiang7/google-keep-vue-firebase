@@ -49,6 +49,7 @@
     "pretty-quick": "^1.8.0",
     "sass-loader": "^7.1.0",
     "style-resources-loader": "^1.2.1",
+    "vue-eslint-parser": "^4.0.3",
     "vue-template-compiler": "^2.5.21"
   }
 }
