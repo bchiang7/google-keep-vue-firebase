@@ -21,12 +21,6 @@
           "allowFirstLine": false
         }
       }
-    ],
-    "vue/html-closing-bracket-spacing": [
-      "error",
-      {
-        "endTag": "never"
-      }
     ]
   }
 }
