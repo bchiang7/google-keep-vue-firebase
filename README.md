@@ -1,14 +1,24 @@
-# google-keep-vue-firebase
+# Google Keep Clone with Vue and Firebase
 
-Simple Google Keep clone with Vue.js and Firebase
+Based on this [Scotch.io tutorial](https://scotch.io/tutorials/building-a-google-keep-clone-with-vue-and-firebase-pt-1)
 
-Based on this [tutorial](https://scotch.io/tutorials/building-a-google-keep-clone-with-vue-and-firebase-pt-1)
+## Getting Started
 
-## Project setup
+1. Copy the `.env.example` file to a `.env` file and fill in the environment variables from your Firebase app
 
-```bash
-yarn install
-```
+2. Install dependencies
+
+   ```bash
+   yarn
+   ```
+
+3. Start it up
+
+   ```bash
+   npm run serve
+   ```
+
+## Vue CLI
 
 ### Compiles and hot-reloads for development
 
