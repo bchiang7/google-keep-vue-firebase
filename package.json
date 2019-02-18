@@ -29,27 +29,27 @@
     }
   },
   "dependencies": {
-    "firebase": "^5.7.1",
-    "vue": "^2.5.21"
+    "firebase": "^5.8.3",
+    "vue": "^2.6.6"
   },
   "devDependencies": {
-    "@upstatement/eslint-config": "^0.3.1",
+    "@upstatement/eslint-config": "^0.4.0",
     "@upstatement/prettier-config": "^0.3.0",
-    "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-plugin-eslint": "^3.2.1",
-    "@vue/cli-service": "^3.2.0",
+    "@vue/cli-plugin-babel": "^3.4.0",
+    "@vue/cli-plugin-eslint": "^3.4.0",
+    "@vue/cli-service": "^3.4.0",
     "babel-eslint": "^10.0.1",
-    "eslint": "^5.11.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-vue": "^5.0.0",
-    "husky": "^1.2.1",
-    "lint-staged": "^8.1.0",
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^5.2.2",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.4",
     "node-sass": "^4.11.0",
-    "prettier": "^1.15.3",
-    "pretty-quick": "^1.8.0",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0",
     "sass-loader": "^7.1.0",
     "style-resources-loader": "^1.2.1",
-    "vue-eslint-parser": "^4.0.3",
-    "vue-template-compiler": "^2.5.21"
+    "vue-eslint-parser": "^6.0.2",
+    "vue-template-compiler": "^2.6.6"
   }
 }

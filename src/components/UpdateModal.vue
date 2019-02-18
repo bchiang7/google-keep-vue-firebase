@@ -1,13 +1,21 @@
 <template>
   <Transition name="modal">
-    <div v-if="note" class="modal-backdrop" @click="dismissModal">
+    <div
+      v-if="note"
+      @click="dismissModal"
+      class="modal-backdrop"
+    >
       <div
         class="modal"
         role="dialog"
         aria-labelledby="modalTitle"
         aria-describedby="modalContent"
       >
-        <form class="edit-form" @submit.prevent="update" @click.stop>
+        <form
+          @submit.prevent="update"
+          @click.stop
+          class="edit-form"
+        >
           <input
             id="modalTitle"
             v-model="mutableNote.title"
@@ -24,7 +32,11 @@
           />
 
           <footer class="modal-footer">
-            <button type="button" class="delete-button" @click="remove">
+            <button
+              @click="remove"
+              type="button"
+              class="delete-button"
+            >
               <DeleteIcon />
             </button>
             <button type="submit" class="submit-button">
@@ -98,6 +110,9 @@ export default {
 
 <style lang="scss">
 .modal-backdrop {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   position: fixed;
   left: 0;
   top: 0;
@@ -106,11 +121,16 @@ export default {
   background-color: rgba(229, 229, 229, 0.75);
   z-index: 100;
 }
+.modal {
+  @include flex-center;
+  width: 100%;
+  margin: 25px;
+  padding-top: 20vh;
+}
 .edit-form {
   position: relative;
   width: 100%;
   max-width: 600px;
-  margin: 25vh auto 0;
   background: $white;
   padding: 20px 20px 8px;
   border-radius: $radius;

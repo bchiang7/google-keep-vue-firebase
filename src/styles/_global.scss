@@ -15,6 +15,7 @@ body {
 }
 
 body {
+  margin: 0;
   overflow-x: hidden;
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
@@ -23,6 +24,10 @@ body {
   background-color: #f0f0f0;
   color: $black;
   line-height: 1.5;
+
+  &.freeze {
+    overflow: hidden;
+  }
 }
 
 h1,
@@ -89,4 +94,14 @@ pre {
 
 #app {
   padding: 50px 100px;
+
+  @include smallerThan850 {
+    padding: 50px;
+  }
+  @include smallerThan480 {
+    padding: 30px;
+  }
+  @include smallerThan330 {
+    padding: 20px;
+  }
 }
