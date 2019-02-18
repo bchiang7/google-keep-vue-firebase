@@ -1,5 +1,5 @@
 <template>
-  <div class="note" @click="selectNote(note)">
+  <div @click="selectNote(note)" class="note">
     <EditIcon />
     <h1 v-if="note.title">
       {{ note.title }}
@@ -67,6 +67,7 @@ export default {
     height: 25px;
     opacity: 0;
     transition: $transition;
+    cursor: pointer;
   }
 }
 </style>

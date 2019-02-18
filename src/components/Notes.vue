@@ -1,6 +1,10 @@
 <template>
   <div class="notes">
-    <Note v-for="(note, index) in notes" :key="index" :note="note" />
+    <Note
+      v-for="(note, index) in notes"
+      :key="index"
+      :note="note"
+    />
   </div>
 </template>
 
@@ -33,7 +37,7 @@ export default {
 .notes {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
   position: relative;
   margin: 50px auto;
 }

@@ -1,19 +1,23 @@
 <template>
   <div class="create-form">
-    <div v-if="titleFieldVisible" class="backdrop" @click="hideTitleField" />
-    <form class="create-note" @submit.prevent="createNote()">
+    <div
+      v-if="titleFieldVisible"
+      @click="hideTitleField"
+      class="backdrop"
+    />
+    <form @submit.prevent="createNote()" class="create-note">
       <input
         v-if="titleFieldVisible"
         v-model="title"
+        @focus="showTitleField"
         name="title"
         placeholder="Title"
-        @focus="showTitleField"
       >
       <textarea
         v-model="content"
+        @focus="showTitleField"
         name="content"
         placeholder="Take a note..."
-        @focus="showTitleField"
       />
       <button type="submit">
         <span>&#43;</span>
