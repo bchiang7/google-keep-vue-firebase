@@ -57,6 +57,8 @@ button {
 
 input,
 textarea {
+  width: 100%;
+  display: block;
   border: 0;
   outline: 0;
   margin: 0;
@@ -64,8 +66,27 @@ textarea {
   font-size: $fz-base;
   background-color: transparent;
   &::placeholder {
+    color: $grey;
     font-family: $ff-product;
+    font-weight: 700;
+    font-size: $fz-md;
   }
+}
+
+input {
+  font-family: $ff-product;
+  font-weight: 700;
+  font-size: $fz-md;
+  margin-bottom: 10px;
+}
+
+textarea {
+  font-family: $ff-roboto;
+  resize: none;
+  line-height: 1.5;
+  min-height: 5em;
+  max-height: 50vh;
+  width: 100%;
 }
 
 ul,
