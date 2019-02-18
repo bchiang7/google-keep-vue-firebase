@@ -65,8 +65,7 @@ export default {
 @import './styles/main.scss';
 
 .logos {
-  @include flex-between;
-  max-width: 150px;
+  @include flex-center;
   margin: 0 auto 30px;
 
   & > * {
@@ -81,14 +80,14 @@ export default {
   }
 
   .logo {
-    min-width: 50px;
+    width: 50px;
 
     &.vue {
-      min-width: 40px;
+      width: 40px;
     }
     &.firebase {
-      min-width: 30px;
-      margin: 5px;
+      width: 30px;
+      margin: 0 8px;
     }
   }
 
