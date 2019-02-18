@@ -137,21 +137,10 @@ export default {
   box-shadow: $shadow;
   transition: $transition;
 
-  input,
-  textarea {
-    width: 100%;
-    display: block;
-  }
   input {
-    font-family: $ff-product;
-    font-weight: 700;
-    font-size: $fz-lg;
     margin-bottom: 20px;
   }
-  textarea {
-    resize: none;
-    line-height: 1.5;
-  }
+
   .modal-footer {
     @include flex-between;
 

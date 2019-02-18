@@ -31,6 +31,7 @@ import Notes from '@/components/Notes';
 import CreateNoteForm from '@/components/Create';
 import UpdateModal from '@/components/UpdateModal';
 import { EventBus } from '@/EventBus.js';
+import { autoExpand } from '@/utils';
 
 export default {
   name: 'App',
@@ -57,6 +58,14 @@ export default {
       this.showModal = false;
       document.body.classList.remove('freeze');
     });
+  },
+  mounted() {
+    document.addEventListener('input', event => {
+      if (event.target.tagName.toLowerCase() !== 'textarea') {
+        return;
+      }
+      autoExpand(event.target);
+    }, false);
   },
 };
 </script>

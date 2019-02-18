@@ -80,20 +80,6 @@ export default {
   box-shadow: $shadow;
   z-index: 10;
 
-  input,
-  textarea {
-    width: 100%;
-    display: block;
-  }
-  input {
-    font-family: $ff-product;
-    font-weight: 700;
-    font-size: $fz-md;
-    margin-bottom: 10px;
-  }
-  textarea {
-    resize: none;
-  }
   button {
     @include flex-center;
     position: absolute;
