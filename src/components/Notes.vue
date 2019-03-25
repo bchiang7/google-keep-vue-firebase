@@ -37,7 +37,7 @@ export default {
 .notes {
   display: grid;
   grid-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
   position: relative;
   margin: 50px auto;
 }
