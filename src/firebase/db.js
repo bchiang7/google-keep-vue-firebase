@@ -14,8 +14,8 @@ export const createNote = (title, content) => {
 export const getNotes = cb => db.ref('notes').on('value', cb);
 
 // Update
-export const updateNote = (id, title = '', content = '', cb) => {
-  return db
+export const updateNote = (id, title = '', content = '', cb) =>
+  db
     .ref('notes')
     .orderByChild('id')
     .equalTo(id)
@@ -29,11 +29,10 @@ export const updateNote = (id, title = '', content = '', cb) => {
 
       cb();
     });
-};
 
 // Delete
-export const deleteNote = id => {
-  return db
+export const deleteNote = id =>
+  db
     .ref('notes')
     .orderByChild('id')
     .equalTo(id)
@@ -45,4 +44,3 @@ export const deleteNote = id => {
           .remove();
       });
     });
-};
