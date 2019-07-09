@@ -41,13 +41,14 @@ export default {
 
 <style lang="scss">
 .note {
+  position: relative;
+  padding: 20px;
   background-color: $white;
   border: 1px solid $light-grey;
   border-radius: 8px;
-  padding: 20px;
   cursor: default;
   transition: $transition;
-  position: relative;
+  overflow-wrap: break-word;
 
   &:hover,
   &:focus {
