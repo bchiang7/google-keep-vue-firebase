@@ -126,3 +126,18 @@ pre {
     padding: 20px;
   }
 }
+
+.modal-enter,
+.modal-leave-active {
+  opacity: 0;
+}
+.modal-enter,
+.modal-leave-to {
+  form {
+    transform: scale(0.75);
+  }
+}
+.modal-enter-active,
+.modal-leave-active {
+  transition: $transition;
+}
