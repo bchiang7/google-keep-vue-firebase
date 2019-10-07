@@ -22,7 +22,9 @@
 
     <Notes />
 
-    <UpdateModal v-if="showModal" :note="selectedNote" />
+    <transition name="modal">
+      <UpdateModal v-if="showModal" :note="selectedNote" />
+    </transition>
   </div>
 </template>
 

@@ -1,52 +1,50 @@
 <template>
-  <Transition name="modal">
+  <div
+    v-if="note"
+    @click="dismissModal"
+    class="modal-backdrop"
+  >
     <div
-      v-if="note"
-      @click="dismissModal"
-      class="modal-backdrop"
+      class="modal"
+      role="dialog"
+      aria-labelledby="modalTitle"
+      aria-describedby="modalContent"
     >
-      <div
-        class="modal"
-        role="dialog"
-        aria-labelledby="modalTitle"
-        aria-describedby="modalContent"
+      <form
+        @submit.prevent="update"
+        @click.stop
+        class="edit-form"
       >
-        <form
-          @submit.prevent="update"
-          @click.stop
-          class="edit-form"
+        <input
+          id="modalTitle"
+          v-model="mutableNote.title"
+          name="title"
+          placeholder="Title"
         >
-          <input
-            id="modalTitle"
-            v-model="mutableNote.title"
-            name="title"
-            placeholder="Title"
+
+        <textarea
+          id="modalContent"
+          v-model="mutableNote.content"
+          name="content"
+          placeholder="Take a note..."
+          rows="8"
+        />
+
+        <footer class="modal-footer">
+          <button
+            @click="remove"
+            type="button"
+            class="delete-button"
           >
-
-          <textarea
-            id="modalContent"
-            v-model="mutableNote.content"
-            name="content"
-            placeholder="Take a note..."
-            rows="8"
-          />
-
-          <footer class="modal-footer">
-            <button
-              @click="remove"
-              type="button"
-              class="delete-button"
-            >
-              <DeleteIcon />
-            </button>
-            <button type="submit" class="submit-button">
-              <span>Done</span>
-            </button>
-          </footer>
-        </form>
-      </div>
+            <DeleteIcon />
+          </button>
+          <button type="submit" class="submit-button">
+            <span>Done</span>
+          </button>
+        </footer>
+      </form>
     </div>
-  </Transition>
+  </div>
 </template>
 
 <script>
@@ -169,20 +167,5 @@ export default {
       }
     }
   }
-}
-
-.modal-enter,
-.modal-leave-active {
-  opacity: 0;
-}
-.modal-enter,
-.modal-leave-to {
-  form {
-    transform: scale(0.75);
-  }
-}
-.modal-enter-active,
-.modal-leave-active {
-  transition: $transition;
 }
 </style>

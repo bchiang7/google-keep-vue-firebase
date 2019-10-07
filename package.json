@@ -29,7 +29,7 @@
     }
   },
   "dependencies": {
-    "firebase": "^6.6.1",
+    "firebase": "^7.1.0",
     "vue": "^2.6.10"
   },
   "devDependencies": {
